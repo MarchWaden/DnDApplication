@@ -1,0 +1,19 @@
+<div id="Navbar" class="row">
+  <div class="col-sm-8 text-left">
+  <%if(typeof(user.username) !== 'undefined'){%>
+    <a href="/">Home</a>
+    <a href="/chat">Chat Live!</a>
+    <a href="/board">View gameboard</a>
+  <%}%>
+  </div>
+  <div class="col-sm-4 text-right">
+  <%if(typeof(user.username) !== 'undefined'){%>
+    <a href="/users/<%=user._id%>"><%=user.username%></a>
+    <a href="/auth/logout">Log out!</a>
+  <%}else{%>
+    <a href="/auth/login">Log in!</a>
+    <a href="/user/new">Register an account!</a>
+  <%}%>
+  </div>
+</div>
+<div class="row" id="Navprotector"></div>

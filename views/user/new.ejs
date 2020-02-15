@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New User</title>
+    <%- include('../partials/_navbar');%>
+  </head>
+  <body>
+    <div>Create new user!</div>
+    <div>
+      <form action="/auth/register" method="post">
+        Username: <input type="text" name="username"></input></br>
+        Password: <input type="password" name="password"></input></br>
+          <input type="submit" value="Create Account!"></input>
+      </form>
+    </div>
+  </body>
+</html>

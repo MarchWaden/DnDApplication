@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <%- include('../partials/_header');%>
+  </head>
+  <body>
+    <%- include('../partials/_navbar');%>
+    <form action="/auth/login" method="post">
+      Username: <input type="text" name="username"></input></br>
+      Password: <input type="password" name="password"></input></br>
+      <input type="submit" value="Login"></input>
+    </form>
+  </body>
+</html>
