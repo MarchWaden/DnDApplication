@@ -20,7 +20,6 @@ router.post('/register', async (req, res) => {
     console.log(req.body)
   const password = req.body.password;
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(2));
-  console.log(`${passwordHash} is hash, ${password} is password`)
 
   const userEntry = {};
   userEntry.username = req.body.username;
@@ -70,7 +69,6 @@ router.get('/logout', (req, res) => {
     if(err){
       res.send(err);
     } else {
-      console.log('logout succesful')
       res.redirect('/')
     }
   });

@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const http = require ('http').createServer(app);
 const io = require('socket.io')(http);
+const requireLogin = require('./middleware/requireLogin');
 
 
 //Informing us of socketio connections
@@ -32,8 +33,8 @@ const chatController = require('./controllers/chatController.js');
 const userController = require('./controllers/userController.js');
 const authController = require('./controllers/authController.js');
 const boardController = require('./controllers/boardController.js');
-const chatSocket = require('./controllers/chatSocket.js')(io);
-const boardSocket = require('./controllers/boardSocket.js')(io);
+const gamesController = require('./controllers/gamesController.js')
+const socketController = require('./controllers/socketController.js')(io);
 
 //Connecting to session database
 const store = new MongoDBStore({
@@ -48,6 +49,7 @@ store.on('connected', function() {
 
 //Database connection failure message
 store.on('error', function(error) {
+  console.log('store connection failure')
   console.log(error)
 });
 
@@ -93,6 +95,7 @@ app.use('/chat', chatController);
 app.use('/user', userController);
 app.use('/auth', authController);
 app.use('/board', boardController);
+app.use('/games', requireLogin, gamesController);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');

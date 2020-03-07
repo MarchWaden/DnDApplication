@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New User</title>
+    <%- include('../partials/_header');%>
+    <%- include('../partials/_navbar');%>
+  </head>
+  <body>
+    <form action="/games" method="post">
+      <input type="text" placeholder="Name" name="name"></input></br>
+      <input type="text" placeholder="Description" name="description"></input></br>
+      <input type="text" placeholder="Image URL" name="imageURL"></input></br>
+      <input type="submit" value="Create Game"></input>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <%- include('../partials/_header');%>
+    <%- include('../partials/_navbar');%>
+  </head>
+  <div class = 'container'>
+  <body>
+    <h2>Games:</h2>
+    <% for(i=0;i<games.length;i++){%>
+    <a href="/games/play/<%=games[i].name%>"><%=games[i].name%></a></br>
+    <%}%>
+  </body>
+  </div>
+</html>

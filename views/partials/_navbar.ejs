@@ -4,11 +4,13 @@
     <a href="/">Home</a>
     <a href="/chat">Chat Live!</a>
     <a href="/board">View gameboard</a>
+    <a href="/games/new">Create Game</a>
+    <a href="/games/view">View Games</a>
   <%}%>
   </div>
   <div class="col-sm-4 text-right">
   <%if(typeof(user.username) !== 'undefined'){%>
-    <a href="/users/<%=user._id%>"><%=user.username%></a>
+    <a href="/user/view"><%=user.username%></a>
     <a href="/auth/logout">Log out!</a>
   <%}else{%>
     <a href="/auth/login">Log in!</a>

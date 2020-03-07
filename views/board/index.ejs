@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <%-include('../partials/_header.ejs');-%>
+    <%- include('../partials/_navbar');%>
     <script src="/jquery/jquery-3.3.1.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <title></title>
 
   </head>
   <body>
     <div class="container-fluid">
-      <%- include('../partials/_navbar');%>
       <div id="Gamemain" class="row">
         <div id="Maincanvas" class="col-sm-10"></div>
         <div id="Information" class="col-sm-2">Info</br><form id="GridSize"><input type="number" placeholder="25"></input><input type="submit" value="Change Grid Size"></input></form></div>
       </div>
     </div>
-    <script src='scripts/board.js'></script>
+    <script src='/scripts/board.js'></script>
   </body>
 </html>

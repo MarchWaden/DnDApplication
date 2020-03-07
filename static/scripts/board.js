@@ -80,7 +80,7 @@ async function CreateBoard (image) {
 };
 
 async function SetBoardImage (image){
-  $('#Map').css("background-image", `url("../assets/images/${image}")`);
+  $('#Map').css("background-image", `url("/assets/images/${image}")`);
   let imageSize = await getBackgroundImageSize($('#Map'));
   console.log(imageSize);
   $('#Map').css("height", `${imageSize.height}px`);

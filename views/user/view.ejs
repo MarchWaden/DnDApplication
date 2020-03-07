@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>View User</title>
+    <%- include('../partials/_header');%>
+  </head>
+  <body>
+    <%- include('../partials/_navbar');%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class= "col-sm-4"></div>
+        <div class="col-sm-4 readable"><h1><%= user.username %></h1></div>
+        <div class="col-sm-4"></div>
+        <h1></br></h1>
+      </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6 text-left">
+              <h3>My Games:</br></h3>
+              <% for(i=0;i<user.games.length;i++){%>
+                <div class="row readable">
+                  <div class="col-sm-8 text-left"><a href="/games/play/<%=games[i].name%>"><%=games[i].name%></a></br></div>
+                  <div class="col-sm-4">
+                    <form method="POST" action="/games/<%=games[i]._id%>?_method=DELETE">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                  </div>
+                </div>
+              <%}%>
+            </div>
+            <div class="col-sm-5 text-left">
+              <div class="row"><div class="col-sm-12"><h3>Manage Account:</br></h3></div></div>
+              <div class="row">
+                <div class="col-sm-8 text-left readable">New Password: <form method="POST" action="/user?_method=PUT"><input type="password" name="password" value="Password"/></div>
+                <div class="col-sm-4 readable"></br><input type="submit" name="" value="Change Password"/></form></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 readable">
+                  </br>
+                  <form method="POST" action="/user?_method=DELETE">
+                      <input type="submit" name="" value="Delete Account"/>
+                  </form>
+                  </br>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
