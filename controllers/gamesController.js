@@ -8,20 +8,17 @@ router.post('/', async (req, res) => {
       const user = await User.findById(req.session.user._id);
       req.body.user = res.locals.user
       const game = await Game.create(req.body);
+      await game.save();
       user.games.push(game._id);
       await user.save();
-      console.log(user);
-      console.log("REDIRECTING TO GAMES")
       res.redirect('/games/view');
   } catch(err){
-      console.log(err);
       res.send(err);
   }
 })
 router.get('/play/:id', async (req, res) => {
     try {
-        const game = await Game.findOne({'name': req.params.name});
-        console.log(game);
+        const game = await Game.findOne({'name': req.params.id});
         res.render('board/index.ejs', {game});
     } catch(err){
         res.send(err);
@@ -41,10 +38,7 @@ router.get('/view',  async (req, res) => {
 router.delete('/:id', async (req,res) => {
   try {
       let game = await Game.findById(req.params.id);
-      console.log(game.user);
-      console.log(req.session.user._id);
       if(game.user.equals(req.session.user._id)){
-        console.log('confirmed');
         let user = await User.findById(game.user);
         user.games.remove(req.params.id);
         await Game.findByIdAndDelete(req.params.id);

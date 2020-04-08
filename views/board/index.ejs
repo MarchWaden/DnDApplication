@@ -3,20 +3,68 @@
   <head>
     <meta charset="utf-8">
     <%-include('../partials/_header.ejs');-%>
-    <%- include('../partials/_navbar');%>
+    <%-include('../partials/_navbar.ejs');-%>
     <script src="/jquery/jquery-3.3.1.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <title></title>
-
+    <script>var game = <%-JSON.stringify(game)%>; var user = <%-JSON.stringify(user)%></script>
+    <title><%=game.name%></title>
   </head>
   <body>
     <div class="container-fluid">
+      <div class="row"></div>
       <div id="Gamemain" class="row">
-        <div id="Maincanvas" class="col-sm-10"></div>
-        <div id="Information" class="col-sm-2">Info</br><form id="GridSize"><input type="number" placeholder="25"></input><input type="submit" value="Change Grid Size"></input></form></div>
+        <div class="col-sm-1"></div>
+        <div id="Board" class="col-sm-9"></div>
+        <div id="Information" class="col-sm-2">Info</br></div>
       </div>
-    </div>
+    </br></br></br>
+      <div class="row" id="DMConsole">
+          <div class="col-sm-1" id="ConsoleRow1"><button id="Create">Create</button></div>
+          <div class="col-sm-1" id="ConsoleRow2"><button id="Delete">Delete</button></div>
+          <div class="col-sm-1" id="ConsoleRow3"><button id="Move">Move</button></div>
+          <div class="col-sm-1" id="ConsoleRow4"><button id="Examine">Examine</button></div>
+          <div class="col-sm-1" id="ConsoleRow5"></div>
+          <div class="col-sm-1" id="ConsoleRow6"></div>
+          <div class="col-sm-1" id="ConsoleRow7"></div>
+          <div class="col-sm-1" id="ConsoleRow8"></div>
+          <div class="col-sm-1" id="ConsoleRow9"></div>
+          <div class="col-sm-1" id="ConsoleRow10"></div>
+          <div class="col-sm-1" id="ConsoleRow11"></div>
+          <div class="col-sm-1" id="ConsoleRow12"><button id="ClearBoard">Clear Board</button></div>
+      </div>
+    </br></br>
+      <div class="row">
+        <div class="col-sm-12">Entity to be Placed:</div>
+      </div>
+    </br>
+      <div class="row" id="CreateEntities">
+        <div class="col-sm-4">Name:<input type="text" id="EntityName"></input></div>
+        <div class="col-sm-4">Color:
+          <select id="ColorSelect" name="Color">
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="grey">Grey</option>
+          </select>
+        </div>
+        <div class="col-sm-4">Shape:
+          <select id="ShapeSelect" name="Shape">
+            <option value="square">Square</option>
+            <option value="uptriangle">Up Triangle</option>
+            <option value="downtriangle">Down Triangle</option>
+            <option value="circle">Circle</option>
+          </select>
+        </div>
+      </div>
+    </br></br>
+      <div class="row">
+        <div class="col-sm-4"><button id="ChangeImage">Change Image</button>       Image URL:<input type="text" id="ImageURL"></input></div>
+        <div class="col-sm-4"></div>
+        <div class="dol-sm-4"><button id="ChangeSize">Change Grid Size</button>           Size:<input type="text" placeholder="25" id="Size"></input></div>
+      </div>
+    </br></br></br>
     <script src='/scripts/board.js'></script>
   </body>
 </html>

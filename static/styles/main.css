@@ -5,6 +5,7 @@ body {
   background-image: url("../assets/images/DawnOfThorns.jpg");
   font-family: 'Niconne', cursive;
   font-size: large;
+  background-repeat: no-repeat;
 }
 a {
   color: Crimson;
@@ -39,6 +40,7 @@ textarea{
 
 #Maincanvas{
   object-fit: scale-down;
+  display: inline-block;
 }
 #Map{
   background-repeat: no-repeat;
@@ -59,6 +61,8 @@ textarea{
   width: 100%;
   padding: 0px;
   margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
@@ -106,4 +110,102 @@ textarea{
 
 .grey{
   background-color: grey;
+}
+.blue{
+  background-color: blue;
+}
+.yellow{
+  background-color: yellow;
+}
+.purple{
+  background-color: purple;
+}
+.circle {
+  border-radius: 50%
+}
+.uptriangle.red{
+  width: 0;
+  height: 0;
+  border-left: 50% solid transparent;
+  border-right: 50% solid transparent;
+  border-bottom: 100% solid red;
+}
+.uptriangle.blue{
+  width: 0;
+  height: 0;
+  border-left: 50% solid transparent;
+  border-right: 50% solid transparent;
+  border-bottom: 100% solid blue;
+}
+.uptriangle.green{
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid green;
+}
+.uptriangle.grey{
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid grey;
+}
+.uptriangle.yellow{
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid yellow;
+}
+.uptriangle.purple{
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid purple;
+}
+
+
+.downtriangle.red {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red;
+}
+.downtriangle.blue {
+  width: 0px;
+  height: 0;
+  padding-left: 50% solid transparent;
+  padding-right: 50% solid transparent;
+  padding-top: 100% solid blue;
+}
+.downtriangle.green {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid green;
+}
+.downtriangle.yellow {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid yellow;
+}
+.downtriangle.grey {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid grey;
+}
+.downtriangle.purple {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid purple;
 }

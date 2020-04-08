@@ -14,9 +14,15 @@ const gameSchema = new mongoose.Schema ({
       type: String
     },
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    imageURL: {
-      type: String
+    state: {
+      squares: [{i: Number, j: Number, Color: String, Shape: String, Name: String}],
+      image: String,
+      squareSize: {
+        type: Number,
+        default: 25
+      }
     }
+
 })
 
 module.exports = mongoose.model('Game', gameSchema);
