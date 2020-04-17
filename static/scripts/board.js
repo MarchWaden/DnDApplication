@@ -3,6 +3,7 @@ let selectedCursor = "examine";
 let selectedSquare = null;
 let reset = 0;
 let state = {};
+let backgroundScalar = 1;
 let requestState = () => {
   socket.emit('ClientRequestsState', user, game);
   console.log('requesting state');
@@ -23,7 +24,6 @@ while (node.hasChildNodes()) {
   clear(node.firstChild);
   }
 }
-
 function clear(node) {
   while (node.hasChildNodes()) {
     clear(node.firstChild);
@@ -67,7 +67,7 @@ let updateImage = () => {
 async function createBoard (){
   if($("#Map")){
     console.log('no map');
-    $('#Board').append(`'<div id="Map"></div>'`);
+    $('#Board').append(`<div id="Map"></div>`);
   }
   SetBoardImage(state.image);
   imageSize = await getBackgroundImageSize($('#Map'));
@@ -87,6 +87,8 @@ async function createBoard (){
 async function SetBoardImage (image){
   $('#Map').css("background-image", `url("${image}"`);
   let imageSize = await getBackgroundImageSize($('#Map'));
+  imageSize.width = imageSize.width*backgroundScalar;
+  imageSize.height = imageSize.height*backgroundScalar;
   console.log(imageSize);
   $('#Map').css("height", `${imageSize.height}px`);
   $('#Map').css("width", `${imageSize.width}px`);
@@ -109,7 +111,11 @@ var getBackgroundImageSize = function(el) {
         return { width: this.width, height: this.height };
     });
 };
-
+function changeScale(){
+  backgroundScalar = document.getElementById("ImageScale").value;
+  console.log(document.getElementById("ImageScale").value);
+  updateBoard();
+}
 let squareClick = (square) => {
   if(selectedCursor == "create"){
     let isOccupied = 0;
@@ -179,6 +185,7 @@ let createButtons = () => {
   $('#Move').click(function(){selectedCursor = 'move'});
   $('#Examine').click(function(){selectedCursor = 'examine'});
   $('#ClearBoard').click(function(){reset=1; updateBoard(); console.log('beepboop');})
+  $('#ChangeScale').click(function(){changeScale()});
   //add essential functions: create, delete, move, choose shape/color
 }
 

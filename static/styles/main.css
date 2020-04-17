@@ -44,6 +44,7 @@ textarea{
 }
 #Map{
   background-repeat: no-repeat;
+  background-size:100% 100%;
 }
 #Gameinfo {
   height: 2em;
