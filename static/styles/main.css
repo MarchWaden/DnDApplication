@@ -40,7 +40,6 @@ textarea{
 
 #Maincanvas{
   object-fit: scale-down;
-  display: inline-block;
   overflow: auto;
 }
 #Map{
@@ -49,7 +48,6 @@ textarea{
 }
 #Gameinfo {
   height: 2em;
-  overflow: hidden;
   float: right;
   z-index: 5;
 }

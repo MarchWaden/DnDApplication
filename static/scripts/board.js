@@ -90,8 +90,8 @@ async function SetBoardImage (image){
   imageSize.width = imageSize.width*backgroundScalar;
   imageSize.height = imageSize.height*backgroundScalar;
   console.log(imageSize);
-  $('#Map').css("height", `${imageSize.height}px`);
-  $('#Map').css("width", `${imageSize.width}px`);
+    $('#Map').css("height", `${imageSize.height}px`);
+    $('#Map').css("width", `${imageSize.width}px`);
   console.log('board image set!');
 };
 var getBackgroundImageSize = function(el) {
@@ -188,7 +188,6 @@ let createButtons = () => {
   $('#ChangeScale').click(function(){changeScale()});
   //add essential functions: create, delete, move, choose shape/color
 }
-
 
 function RunGame(){
   initializeSockets();
